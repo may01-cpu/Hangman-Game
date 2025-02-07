@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: hsl(337, 92%, 31%);
+}
+
+.container {
+  background-color: #e0dad5;
+  width: 850px;
+  display: flex;
+  gap: 70px;
+  align-items: flex-end;
+  padding: 60px 40px;
+  border-radius: 15px;
+}
+.hangman img {
+  max-width: 270px;
+}
+
+.hangman h1 {
+  font-size: 1.45rem;
+  margin-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.word {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.word .letter {
+  width: 28px;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 3px solid black;
+}
+
+.word .letter.guessed {
+  border-color: transparent;
+  margin: -40px 0 35px;
+}
+
+.game h4 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.game h4 b {
+  font-weight: 600;
+}
+
+.game .incorrect-gusses b {
+  color: darkred;
+}
+
+.game .letters {
+  display: flex;
+  gap: 5px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-modal button,
+.letters button {
+  color: white;
+  background-color: hsl(337, 92%, 31%);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.letters button {
+  text-transform: uppercase;
+  padding: 7px;
+  width: calc(100% / 9 - 5px);
+}
+
+.letters button:hover,
+.game-modal button:hover {
+  background-color: hsl(337, 85%, 38%);
+}
+
+.game-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(88, 25, 25, 0.594);
+}
+
+.game-modal img {
+  max-width: 130px;
+  border-radius: 70px;
+  margin-bottom: 20px;
+}
+
+.game-modal .content {
+  background: white;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.game-modal h4 {
+  font-size: 1.53rem;
+}
+
+.game-modal p {
+  font-size: 1.15rem;
+  margin: 15px 0 30px;
+  font-weight: 500;
+}
+
+.game-modal p b {
+  color: darkgreen;
+  font-weight: 600;
+}
+
+.game-modal button {
+  padding: 12px 23px;
+}
+
+@media(max-width:782px){
+    .container{
+        flex-direction: column;
+        padding:30px 15px;
+        align-items: center;
+    }
+    .hangman img{
+        max-width: 200px;
+        max-height: 150px;
+    }
+
+    .hangman h1{
+        display:none;
+    }
+}
