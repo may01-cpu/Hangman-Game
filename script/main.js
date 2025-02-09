@@ -3,13 +3,15 @@ const lettersDiv = document.querySelector(".letters");
 const wordDisplay = document.querySelector(".word");
 const incorrectGuesses = document.querySelector(".incorrect-guesses b");
 const gameModal = document.querySelector(".game-modal");
-const PlayAgainBtn = document.querySelector(".play-again");
+const playAgainBtn = document.querySelector(".play-again");
+const levelButtons = document.querySelectorAll(".level"); 
+const levelModal = document.querySelector(".level-modal");
 
 const guessesMax = 6;
-let currentWord, correctletters, wrongGuessCount;
+let currentWord, correctLetters, wrongGuessCount, wordList;
 
 const resetGame = () => {
-  correctletters = [];
+  correctLetters = [];
   wrongGuessCount = 0;
 
   hangmanImg.src = `images/hangman-${wrongGuessCount}.svg`;
@@ -55,7 +57,7 @@ const initGame = (button, clickedLetter) => {
   if (currentWord.includes(clickedLetter)) {
     [...currentWord].forEach((letter, index) => {
       if (letter === clickedLetter) {
-        correctletters.push(letter);
+        correctLetters.push(letter);
         wordDisplay.querySelectorAll("li")[index].innerText = letter;
         wordDisplay.querySelectorAll("li")[index].classList.add("guessed");
       }
@@ -70,11 +72,26 @@ const initGame = (button, clickedLetter) => {
   if (wrongGuessCount === guessesMax) {
     return gameOver(false);
   }
-  if (correctletters.length === currentWord.length) {
+  if (correctLetters.length === currentWord.length) {
     return gameOver(true);
   }
 };
 
+levelButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const level = button.dataset.level;
+    if (level === "easy") {
+      wordList = easy;
+    } else if (level === "medium") {
+      wordList = medium;
+    } else {
+      wordList = hard;
+    }
+
+    levelModal.classList.add("hide"); // Hide the level selection modal
+    getRandomWord(); // Start the game
+  });
+});
 
 for (let i = 97; i <= 122; i++) {
   const button = document.createElement("button");
@@ -85,5 +102,11 @@ for (let i = 97; i <= 122; i++) {
   );
 }
 
-getRandomWord();
-PlayAgainBtn.addEventListener("click", getRandomWord);
+levelModal.classList.remove("hide");
+
+playAgainBtn.addEventListener("click", () => {
+  resetGame();
+  gameModal.classList.remove("show"); // Hide the game over modal
+  levelModal.classList.remove("hide"); // Show level selection again
+});
+

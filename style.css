@@ -81,8 +81,9 @@ body {
 }
 
 .game-modal button,
-.letters button {
-  color: white;
+.letters button ,
+.level-modal button{
+  color: #e0dad5;
   background-color: hsl(337, 92%, 31%);
   font-weight: 600;
   font-size: 1rem;
@@ -104,7 +105,8 @@ body {
 }
 
 .letters button:hover,
-.game-modal button:hover {
+.game-modal button:hover,
+.level-modal button:hover {
   background-color: hsl(337, 85%, 38%);
 }
 
@@ -137,7 +139,7 @@ body {
 }
 
 .game-modal .content {
-  background: white;
+  background: #e0dad5;
   max-width: 420px;
   width: 100%;
   text-align: center;
@@ -164,6 +166,42 @@ body {
   padding: 12px 23px;
 }
 
+.level-modal .level-content{
+  background-color: #e0dad5;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.level-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding:0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.594);
+  backdrop-filter: blur(0.7rem);
+  transition: opacity 0.4s ease;
+}
+
+.level-modal.hide{
+  opacity: 0;
+  pointer-events: none;
+  z-index:999;
+}
+
+.level-modal button {
+  padding: 12px 23px;
+  margin:30px 10px;
+}
+
+
 @media(max-width:782px){
     .container{
         flex-direction: column;
@@ -178,4 +216,5 @@ body {
     .hangman h1{
         display:none;
     }
+    
 }
