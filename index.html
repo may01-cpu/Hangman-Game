@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman Game</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="script/word-list.js" defer></script>
+    <script src="script/main.js" defer></script>
   </head>
   <body>
     <div class="game-modal">
-<div class="content">
-  <img src="images/lostFunny.gif" alt="gif">
-  <h4>You Lost !!</h4>
-  <p>The correct word was : <b>loser</b></p>
-  <button class="play-again">Play Again</button>
-</div>
+      <div class="content">
+        <img src="images/lostFunny.gif" alt="gif" />
+        <h4>You Lost !!</h4>
+        <p>The correct word was : <b>loser</b></p>
+        <button class="play-again">Play Again</button>
+      </div>
     </div>
     <div class="container">
       <div class="hangman">
@@ -21,18 +23,7 @@
         <h1>hangman game</h1>
       </div>
       <div class="game">
-        <ul class="word">
-          <li class="letter guessed">a</li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-        </ul>
+        <ul class="word"></ul>
         <h4 class="hint">
           Hint:
           <b>
@@ -41,39 +32,12 @@
             neque ipsa, sunt eum ratione mollitia blanditiis facilis nemo, totam
             exercitationem.</b
           >
-          </h4>
-        <h4 class="incorrect-gusses">
-          Incorrect gusses:
+        </h4>
+        <h4 class="incorrect-guesses">
+          Incorrect guesses:
           <b>0/6</b>
         </h4>
-        <div class="letters">
-            <button>a</button>
-            <button>b</button>
-            <button>c</button>
-            <button>d</button>
-            <button>e</button>
-            <button>f</button>
-            <button>g</button>
-            <button>h</button>
-            <button>i</button>
-            <button>j</button>
-            <button>k</button>
-            <button>l</button>
-            <button>m</button>
-            <button>n</button>
-            <button>o</button>
-            <button>p</button>
-            <button>q</button>
-            <button>r</button>
-            <button>s</button>
-            <button>t</button>
-            <button>u</button>
-            <button>v</button>
-            <button>w</button>
-            <button>x</button>
-            <button>y</button>
-            <button>z</button>
-        </div>
+        <div class="letters"></div>
       </div>
     </div>
   </body>
